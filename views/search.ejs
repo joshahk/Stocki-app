@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="x-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stocki</title>
+        <!-- Link to CSS-->
+        <link rel="stylesheet" href="css/registerStyles.css">
+        <!-- Box Icons-->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <body>
+        <header>
+            <div class="nav container">
+                <!--<a href="/" class="logo">Stocki</a>-->
+                <a class="logo" id="logo">Stocki</a>
+
+                <div class="wrapper">
+                    <div id="search-container">
+                        <form action="/search" method="GET" class="search-bar">
+                            <input type="text" name="location" placeholder="Postcode (no spaces)" id="actualinput"/>
+                            <input type="text" name="password" placeholder=<%=SearchItem %> id="actualinput"/>
+                            <button type="submit">Search</i></button>
+   
+                            
+                        </form>
+                    </div>
+                    <!-- Item Box -->
+                    <div class="cart">
+                        <div class="cart-name"></div>
+                        <div class="cart-content">
+                            <div class="cart-contents">
+
+                            </div>
+                            
+                            <div class="total"></div>
+                            <i class="bx bx-x" id="close-cart"></i>
+                            <div class="size-selection">
+                                <form>
+                                    <label for="cars">Size</label>
+                                    <select name="cars" id="cars">
+                                         
+                                    </select>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Shop -->
+        
+        <section class="shop container">
+            <h2 class="section-title">Shop Products</h2>
+            <p hidden class="lati"><%=loc.lat %></p>
+            <p hidden class="long"><%=loc.lon %></p>
+            <!-- Content -->
+            <div class="shop-content">
+                <!-- Box 1-->
+                <%qvals.forEach(function(qval){ %>
+                <div class="product-box">
+                    <img class="product-img" alt="" src=<%=qval.sLink%>>
+                    <h2 class="product-title"><%=qval.pTitle %></h2>
+                    <span class="price"><%=qval.pPrice %></span>
+                    <span class="store"><%=qval.store %></span>
+                    <p hidden class="external-link">><%=qval.iCode %></p>
+                    <p hidden class="hidden-sLink">><%=qval.sLink %></p>
+                    <i class="bx bx-shopping-bag add-cart"></i>
+                    
+                </div>
+                <% }); %>
+            </div>
+          
+        </section>
+
+
+        
+
+
+
+    <script src="js/cart.js"></script>
+   
+        
+
+    </body>
+</html>
